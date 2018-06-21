@@ -2,7 +2,6 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  context: __dirname,
   entry: "./frontend/splendar.jsx",
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
