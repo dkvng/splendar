@@ -1,0 +1,50 @@
+.EventForm-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.23);
+}
+
+.EventForm-modal > form {
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.EventForm-modal > form > input, .EventForm-modal > form > textarea {
+  font-size: 19px;
+  font-weight: lighter;
+  padding: 11px;
+  width: 80%;
+  height: 25px;
+  margin-bottom: 15px;
+  color: #484848;
+  outline: 0px transparent;
+  border: 1px solid #dbdbdb;
+  box-sizing: unset;
+  font-family: "Open Sans", sans-serif;
+}
+
+.EventForm-submit:hover {
+  cursor: pointer;
+}
+
+#EventForm-description {
+  height: 100px;
+}
+
+.EventForm-title {
+  margin-top: 15px;
+}
+
+.EventForm-errors-list {
+  list-style: none;
+  padding-left: 0;
+}

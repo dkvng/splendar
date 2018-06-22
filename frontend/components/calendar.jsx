@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import CreateEventFormContainer from "./create_event_form_container.jsx";
 
 export default class Calendar extends React.Component {
   constructor(props) {
@@ -12,6 +13,11 @@ export default class Calendar extends React.Component {
     };
 
     this.changeMonth = this.changeMonth.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchEvents();
   }
 
   createDays() {
@@ -43,10 +49,15 @@ export default class Calendar extends React.Component {
   }
 
   handleEvent(e) {
-    console.log(e.currentTarget.getAttribute("date"));
     this.setState({
       selected: e.currentTarget.getAttribute("date"),
       eventForm: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      eventForm: false
     });
   }
 
@@ -75,7 +86,7 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    const { currentDate } = this.state;
+    const { currentDate, eventForm, selected } = this.state;
 
     return (
       <section className="Calendar-section">
@@ -89,6 +100,19 @@ export default class Calendar extends React.Component {
           {this.dayNames()}
           {this.createDays()}
         </ul>
+        {eventForm ? (
+          <section
+            className="EventForm-modal"
+            onClick={() => this.closeModal()}
+          >
+            <CreateEventFormContainer
+              selected={selected}
+              closeModal={this.closeModal}
+            />
+          </section>
+        ) : (
+          ""
+        )}
       </section>
     );
   }

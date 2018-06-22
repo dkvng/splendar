@@ -1,10 +1,10 @@
 import React from "react";
-import Calendar from "./calendar.jsx";
 import { Route } from "react-router-dom";
+import CalendarContainer from "./calendar_container.jsx";
 
 const App = () => (
   <div>
-    <Route path="/" component={Calendar} />
+    <Route path="/" component={CalendarContainer} />
   </div>
 );
 
