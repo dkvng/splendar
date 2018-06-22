@@ -8,6 +8,8 @@ export default class CalendarDay extends React.Component {
   render() {
 
 
-    return 
+    return (
+      <div></div>
+    );
   }
 }

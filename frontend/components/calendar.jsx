@@ -7,47 +7,46 @@ export default class Calendar extends React.Component {
 
     this.state = {
       currentDate: new Date(),
-      selected: moment().startOf("day")
+      selected: moment().startOf("day"),
+      eventForm: false
     };
 
     this.changeMonth = this.changeMonth.bind(this);
   }
 
   createDays() {
-    const allMonths = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
+    const { currentDate } = this.state;
     const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
 
-    let startDay = new Date(
-      this.state.currentDate.getFullYear(),
-      this.state.currentDate.getMonth(),
-      1
-    ).getDay();
+    let startDay = new Date(currentYear, currentMonth, 1).getDay();
 
-    let monthDays = monthLengths[this.state.currentDate.getMonth()];
+    let monthDays = monthLengths[currentDate.getMonth()];
 
     return new Array(monthDays + startDay).fill().map((e, i) => {
       if (i < startDay) {
         return <li key={i} />;
       } else {
         return (
-          <li key={i} className="Calendar-date">
+          <li
+            key={i}
+            className="Calendar-date"
+            onClick={e => this.handleEvent(e)}
+            date={new Date(currentYear, currentMonth, i - startDay + 1)}
+          >
             <p>{i - startDay + 1}</p>
           </li>
         );
       }
+    });
+  }
+
+  handleEvent(e) {
+    console.log(e.currentTarget.getAttribute("date"));
+    this.setState({
+      selected: e.currentTarget.getAttribute("date"),
+      eventForm: true
     });
   }
 
