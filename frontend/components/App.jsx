@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
+import Calendar from "./calendar.jsx";
+import { Route } from "react-router-dom";
 
 const App = () => (
   <div>
-    <h1>splendar</h1>
+    <Route path="/" component={Calendar} />
   </div>
 );
 
