@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import CreateEventFormContainer from "./create_event_form_container.jsx";
+import CalendarDay from "./calendar_day.jsx";
 
 export default class Calendar extends React.Component {
   constructor(props) {
@@ -20,10 +21,6 @@ export default class Calendar extends React.Component {
     this.props.fetchEvents();
   }
 
-  displayEvents() {
-    
-  }
-
   createDays() {
     const { currentDate } = this.state;
     const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -34,27 +31,24 @@ export default class Calendar extends React.Component {
 
     let monthDays = monthLengths[currentDate.getMonth()];
 
-    return new Array(monthDays + startDay).fill().map((e, i) => {
+    return new Array(monthDays + startDay).fill().map((el, i) => {
       if (i < startDay) {
         return <li key={i} />;
       } else {
         return (
-          <li
+          <CalendarDay
             key={i}
-            className="Calendar-date"
-            onClick={e => this.handleEvent(e)}
+            handleEvent={e => this.handleEvent(e)}
             date={new Date(currentYear, currentMonth, i - startDay + 1)}
-          >
-            <p>{i - startDay + 1}</p>
-          </li>
+          />
         );
       }
     });
   }
 
-  handleEvent(e) {
+  handleEvent(date) {
     this.setState({
-      selected: e.currentTarget.getAttribute("date"),
+      selected: date,
       eventForm: true
     });
   }

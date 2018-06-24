@@ -5,11 +5,17 @@ export default class CalendarDay extends React.Component {
     super(props);
   }
 
+  displayEvents() {}
+
   render() {
-
-
     return (
-      <div></div>
+      <li
+        className="Calendar-date"
+        onClick={e => this.props.handleEvent(this.props.date)}
+      >
+        <p>{this.props.date.getDate()}</p>
+        <ul>{this.displayEvents()}</ul>
+      </li>
     );
   }
 }
