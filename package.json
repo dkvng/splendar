@@ -31,15 +31,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dkvng/spolendar.git"
+    "url": "git+https://github.com/dkvng/splendar.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dkvng/spolendar/issues"
+    "url": "https://github.com/dkvng/splendar/issues"
   },
-  "homepage": "https://github.com/dkvng/spolendar#readme",
+  "homepage": "https://github.com/dkvng/splendar#readme",
   "devDependencies": {
     "webpack-cli": "^3.0.8"
   }
