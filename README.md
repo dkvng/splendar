@@ -12,7 +12,7 @@
    1. X The form should have start time, end time, description and submit.
    1. X Once submit is clicked the form should disappear.
    1. [X] Event should now appear in that day’s box.
-   1. [X] Events cannot span multiple days. Must start and end the same day.
+   1. [] Events cannot span multiple days. Must start and end the same day.
 1. [X] Show all events the user has on their calendar.
 1. X The UI should have 4 rows of 7 boxes (simple case of a 28 day month).
 1. X The application should communicate with an API backend using JSON. Don’t spend a lot of time on the UI making it look beautiful; just make it functional.
@@ -38,5 +38,5 @@ Events (Minimum Required API)
 Events (Optional API. Not required; bonus points available)
 1.     [] DELETE /events/:id
   1.     Should delete an event
-1.     [] PUT /events/:id
+1.     X PUT /events/:id
   1.     Should update an existing event

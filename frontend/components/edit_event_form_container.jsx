@@ -11,9 +11,12 @@ import EventForm from "./event_form";
 
 const mapStateToProps = ({ errors, entities }, ownProps) => {
   debugger;
-  const event = entities.events[1];
-  event.start_date = moment(event.start_date).format("YYYY-MM-DDTHH:mm:SS");
-  event.end_date = moment(event.end_date).format("YYYY-MM-DDTHH:mm:SS");
+  const event = entities.events[ownProps.eventId];
+
+  if (event) {
+    event.start_date = moment(event.start_date).format("YYYY-MM-DDTHH:mm:SS");
+    event.end_date = moment(event.end_date).format("YYYY-MM-DDTHH:mm:SS");
+  }
 
   console.log(ownProps);
   return {

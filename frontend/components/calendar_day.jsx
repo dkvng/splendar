@@ -19,8 +19,11 @@ class CalendarDay extends React.Component {
   }
 
   handleEvent(e) {
+    debugger;
+    const eventId = Number(e.currentTarget.getAttribute("eventId"));
+    debugger
     e.stopPropagation();
-    this.props.handleEvent(this.state.date, "Update");
+    this.props.handleEvent(this.state.date, "Update", eventId);
   }
 
   displayEvents() {
@@ -30,11 +33,7 @@ class CalendarDay extends React.Component {
         moment(this.state.date).format("MMM Do YY")
       ) {
         return (
-          <li
-            key={i}
-            eventId={event.id}
-            onClick={(e) => this.handleEvent(e)}
-          >
+          <li key={i} eventid={event.id} onClick={e => this.handleEvent(e)}>
             <h5>
               <div className="circle" />{" "}
               {moment(event.start_date).format("h:mm a")}{" "}

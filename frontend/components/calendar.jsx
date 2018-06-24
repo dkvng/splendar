@@ -11,11 +11,13 @@ export default class Calendar extends React.Component {
     this.state = {
       currentDate: new Date(),
       selected: moment().startOf("day"),
-      eventForm: false
+      eventForm: false,
+      eventId: null
     };
 
     this.changeMonth = this.changeMonth.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleEvent = this.handleEvent.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +41,9 @@ export default class Calendar extends React.Component {
         return (
           <CalendarDay
             key={i}
-            handleEvent={(date, eventForm) => this.handleEvent(date, eventForm)}
+            handleEvent={(date, eventForm, eventId) =>
+              this.handleEvent(date, eventForm, eventId)
+            }
             date={new Date(currentYear, currentMonth, i - startDay + 1)}
           />
         );
@@ -62,6 +66,7 @@ export default class Calendar extends React.Component {
           <EditEventFormContainer
             selected={this.state.selected}
             closeModal={this.closeModal}
+            eventId={this.state.eventId}
           />
         );
       default:
@@ -69,11 +74,18 @@ export default class Calendar extends React.Component {
     }
   }
 
-  handleEvent(date, eventForm) {
+  handleEvent(date, eventForm, eventId) {
+    debugger;
     this.setState({
       selected: date,
       eventForm: eventForm
     });
+    debugger;
+    if (eventId) {
+      this.setState({
+        eventId
+      });
+    }
   }
 
   closeModal() {
@@ -98,7 +110,6 @@ export default class Calendar extends React.Component {
 
   render() {
     const { currentDate, eventForm, selected } = this.state;
-    debugger
     return (
       <section className="Calendar-section">
         <h1>

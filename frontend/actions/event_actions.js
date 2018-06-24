@@ -59,6 +59,7 @@ export const updateEvent = event => dispatch => {
 };
 
 export const deleteEvent = eventId => dispatch => {
+  debugger
   return APIUtil.deleteEvent(eventId).then(event =>
     dispatch(removeEvent(eventId))
   );

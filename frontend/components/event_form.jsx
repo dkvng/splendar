@@ -27,6 +27,12 @@ export default class EventForm extends React.Component {
     this.props.processForm(event).then(() => this.props.closeModal());
   }
 
+  handleDelete(e) {
+    this.props
+      .deleteEvent(this.props.event.id)
+      .then(() => this.props.closeModal());
+  }
+
   renderErrors() {
     return (
       <ul className="EventForm-errors-list">
@@ -73,7 +79,7 @@ export default class EventForm extends React.Component {
         {this.props.formType === "Update" ? (
           <input
             type="button"
-            onClick={eventId => this.props.deleteEvent(eventId)}
+            onClick={() => this.handleDelete()}
             className="EventForm-submit"
             value="Delete"
           />
