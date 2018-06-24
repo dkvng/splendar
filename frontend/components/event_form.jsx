@@ -7,6 +7,7 @@ export default class EventForm extends React.Component {
     this.selectedDate =
       moment(this.props.selected).format("YYYY-MM-DD") +
       moment(this.props.currentDate).format("THH:mm");
+
     this.state = {
       title: "",
       description: "",
@@ -19,7 +20,7 @@ export default class EventForm extends React.Component {
   }
 
   componentWillUnmount() {
-    // this.props.clearEventErrors();
+    this.props.clearEventErrors();
   }
 
   update(field) {
@@ -32,9 +33,7 @@ export default class EventForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const event = Object.assign({}, this.state);
-    this.props
-      .processForm(event)
-      .then(this.props.clearEventErrors());
+    this.props.processForm(event).then(() => this.props.closeModal());
   }
 
   renderErrors() {

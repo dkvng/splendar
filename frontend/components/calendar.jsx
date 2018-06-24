@@ -20,6 +20,10 @@ export default class Calendar extends React.Component {
     this.props.fetchEvents();
   }
 
+  displayEvents() {
+    
+  }
+
   createDays() {
     const { currentDate } = this.state;
     const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
