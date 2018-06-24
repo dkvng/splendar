@@ -10,7 +10,7 @@ export default class Calendar extends React.Component {
     this.state = {
       currentDate: new Date(),
       selected: moment().startOf("day"),
-      eventForm: false,
+      eventForm: false
     };
 
     this.changeMonth = this.changeMonth.bind(this);
@@ -74,6 +74,9 @@ export default class Calendar extends React.Component {
   }
 
   render() {
+    console.log(moment("2018-06-17T11:53:00.000Z"));
+    console.log(new Date("2018-06-17T11:53:00.000Z"));
+
     const { currentDate, eventForm, selected } = this.state;
     return (
       <section className="Calendar-section">

@@ -21,16 +21,19 @@
 .Calendar-grid > li {
   border-right: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
+  display: grid;
+  grid-template-rows: 30px 1fr;
 }
 
-.Calendar-date:hover {
-  background-color: lightgrey;
-  cursor: pointer;
-}
+// .Calendar-date:hover {
+//   background-color: lightgrey;
+//   cursor: pointer;
+// }
 
 .Calendar-grid > li > p {
+  margin: 0;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .Calendar-grid > h4 {
@@ -54,4 +57,47 @@
 
 .Calendar-section > h1 > span:hover {
   cursor: pointer;
+}
+
+.Calendar-date {
+  overflow: hidden;
+}
+
+.Calendar-date > ul {
+  list-style: none;
+  padding-left: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.Calendar-date > ul > li {
+  width: 100%;
+}
+
+.Calendar-date > ul > li:hover {
+  cursor: pointer;
+}
+
+.Calendar-date > ul > li > h5 {
+  margin: 0;
+  font-weight: lighter;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Calendar-date > ul > li > h5 > span {
+  font-weight: bold;
+}
+
+.circle {
+  height: 10px;
+  width: 10px;
+  background-color: #4c85f4;
+  border-radius: 50%;
+  display: inline-block;
 }

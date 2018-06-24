@@ -6,8 +6,7 @@ class CalendarDay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: this.props.date,
-      events: this.props.events
+      date: this.props.date
     };
   }
 
@@ -28,7 +27,8 @@ class CalendarDay extends React.Component {
         return (
           <li key={i}>
             <h5>
-              {moment(event.start_date).format("h:mm a")}
+              <div className="circle" />{" "}
+              {moment(event.start_date).format("h:mm a")}{" "}
               <span>{event.title}</span>
             </h5>
           </li>

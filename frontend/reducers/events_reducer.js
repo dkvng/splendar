@@ -8,7 +8,7 @@ const eventsReducer = (state = {}, action) => {
       return action.events;
     case RECEIVE_EVENT:
       return merge({}, state, {
-        [action.event.id]: action.event
+        [action.event.event.id]: action.event.event
       });
     default:
     return state;

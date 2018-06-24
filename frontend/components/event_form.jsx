@@ -4,18 +4,9 @@ import moment from "moment";
 export default class EventForm extends React.Component {
   constructor(props) {
     super(props);
-    this.selectedDate =
-      moment(this.props.selected).format("YYYY-MM-DD") +
-      moment(this.props.currentDate).format("THH:mm");
 
-    this.state = {
-      title: "",
-      description: "",
-      start_date: this.selectedDate,
-      end_date: moment(this.selectedDate)
-        .add(30, "minutes")
-        .format("YYYY-MM-DDTHH:mm:SS")
-    };
+    this.state = this.props.event;
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -73,7 +64,11 @@ export default class EventForm extends React.Component {
           value={this.state.end_date}
           onChange={this.update("end_date")}
         />
-        <input type="submit" className="EventForm-submit" />
+        <input
+          type="submit"
+          className="EventForm-submit"
+          value={this.props.formType}
+        />
       </form>
     );
   }
