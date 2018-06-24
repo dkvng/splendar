@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import CreateEventFormContainer from "./create_event_form_container.jsx";
+import EditEventFormContainer from "./edit_event_form_container.jsx";
 import CalendarDay from "./calendar_day.jsx";
 
 export default class Calendar extends React.Component {
@@ -38,7 +39,7 @@ export default class Calendar extends React.Component {
         return (
           <CalendarDay
             key={i}
-            handleEvent={e => this.handleEvent(e)}
+            handleEvent={(date, eventForm) => this.handleEvent(date, eventForm)}
             date={new Date(currentYear, currentMonth, i - startDay + 1)}
           />
         );
@@ -46,10 +47,32 @@ export default class Calendar extends React.Component {
     });
   }
 
-  handleEvent(date) {
+  displayForm() {
+    switch (this.state.eventForm) {
+      case "Create":
+        return (
+          <CreateEventFormContainer
+            selected={this.state.selected}
+            closeModal={this.closeModal}
+          />
+        );
+
+      case "Update":
+        return (
+          <EditEventFormContainer
+            selected={this.state.selected}
+            closeModal={this.closeModal}
+          />
+        );
+      default:
+        return "";
+    }
+  }
+
+  handleEvent(date, eventForm) {
     this.setState({
       selected: date,
-      eventForm: true
+      eventForm: eventForm
     });
   }
 
@@ -74,10 +97,8 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    console.log(moment("2018-06-17T11:53:00.000Z"));
-    console.log(new Date("2018-06-17T11:53:00.000Z"));
-
     const { currentDate, eventForm, selected } = this.state;
+    debugger
     return (
       <section className="Calendar-section">
         <h1>
@@ -95,10 +116,7 @@ export default class Calendar extends React.Component {
             className="EventForm-modal"
             onClick={() => this.closeModal()}
           >
-            <CreateEventFormContainer
-              selected={selected}
-              closeModal={this.closeModal}
-            />
+            {this.displayForm()}
           </section>
         ) : (
           ""

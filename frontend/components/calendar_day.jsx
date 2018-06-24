@@ -18,6 +18,11 @@ class CalendarDay extends React.Component {
     }
   }
 
+  handleEvent(e) {
+    e.stopPropagation();
+    this.props.handleEvent(this.state.date, "Update");
+  }
+
   displayEvents() {
     return this.props.events.map((event, i) => {
       if (
@@ -25,7 +30,11 @@ class CalendarDay extends React.Component {
         moment(this.state.date).format("MMM Do YY")
       ) {
         return (
-          <li key={i}>
+          <li
+            key={i}
+            eventId={event.id}
+            onClick={(e) => this.handleEvent(e)}
+          >
             <h5>
               <div className="circle" />{" "}
               {moment(event.start_date).format("h:mm a")}{" "}
@@ -43,7 +52,7 @@ class CalendarDay extends React.Component {
     return (
       <li
         className="Calendar-date"
-        onClick={e => this.props.handleEvent(this.state.date)}
+        onClick={() => this.props.handleEvent(this.state.date, "Create")}
       >
         <p>{this.state.date.getDate()}</p>
         <ul>{Object.values(this.props.events).length > 0 ? events : ""}</ul>

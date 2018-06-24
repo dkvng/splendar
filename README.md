@@ -15,7 +15,7 @@
    1. [X] Events cannot span multiple days. Must start and end the same day.
 1. [X] Show all events the user has on their calendar.
 1. X The UI should have 4 rows of 7 boxes (simple case of a 28 day month).
-1. X The application should communicate with an API backend using JSON. Don’t spend a lot of time on the  UI making it look beautiful; just make it functional.
+1. X The application should communicate with an API backend using JSON. Don’t spend a lot of time on the UI making it look beautiful; just make it functional.
 
 ### Optional Specs (Not required; bonus points available for inclusion of one or more features)
 1. X Switch between months

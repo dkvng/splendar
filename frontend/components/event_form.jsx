@@ -69,6 +69,17 @@ export default class EventForm extends React.Component {
           className="EventForm-submit"
           value={this.props.formType}
         />
+
+        {this.props.formType === "Update" ? (
+          <input
+            type="button"
+            onClick={eventId => this.props.deleteEvent(eventId)}
+            className="EventForm-submit"
+            value="Delete"
+          />
+        ) : (
+          ""
+        )}
       </form>
     );
   }
