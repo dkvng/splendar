@@ -31,12 +31,12 @@ Build the backend of the calendar application. The API for the calendar should b
 
 Events (Minimum Required API)
 1. [X] POST /events
-  1. Should create an event
+    - Should create an event
 1. [X] GET /events
-  1. Should return all events
+    - Should return all events
 
 Events (Optional API. Not required; bonus points available)
 1. [ ] DELETE /events/:id
-  1. Should delete an event
+    - Should delete an event
 1. [X] PUT /events/:id
-  1. Should update an existing event
+    - Should update an existing event
