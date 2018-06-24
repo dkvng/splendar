@@ -10,7 +10,7 @@ export default class Calendar extends React.Component {
     this.state = {
       currentDate: new Date(),
       selected: moment().startOf("day"),
-      eventForm: false
+      eventForm: false,
     };
 
     this.changeMonth = this.changeMonth.bind(this);
@@ -60,17 +60,7 @@ export default class Calendar extends React.Component {
   }
 
   dayNames() {
-    const allDays = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ];
-
-    return allDays.map((day, i) => {
+    return moment.weekdays().map((day, i) => {
       return <h4 key={i}>{day}</h4>;
     });
   }
@@ -85,7 +75,6 @@ export default class Calendar extends React.Component {
 
   render() {
     const { currentDate, eventForm, selected } = this.state;
-
     return (
       <section className="Calendar-section">
         <h1>
