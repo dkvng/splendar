@@ -44,7 +44,6 @@ export default class EventForm extends React.Component {
   }
 
   render() {
-    // min & max to not allow multi day events
     const min = moment(this.props.selected).format("YYYY-MM-DDTHH:mm:SS");
     const max = moment(this.props.selected)
       .add(1, "day")

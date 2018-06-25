@@ -9,7 +9,7 @@ export default class Calendar extends React.Component {
     super(props);
 
     this.state = {
-      currentDate: new Date(),
+      currentDate: moment(),
       selected: moment().startOf("day"),
       eventForm: false,
       eventId: null
@@ -27,12 +27,12 @@ export default class Calendar extends React.Component {
   createDays() {
     const { currentDate } = this.state;
     const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.format("YYYY");
+    const currentMonth = currentDate.month();
 
     let startDay = new Date(currentYear, currentMonth, 1).getDay();
 
-    let monthDays = monthLengths[currentDate.getMonth()];
+    let monthDays = monthLengths[currentDate.month()];
 
     return new Array(monthDays + startDay).fill().map((el, i) => {
       if (i < startDay) {
@@ -75,6 +75,7 @@ export default class Calendar extends React.Component {
   }
 
   handleEvent(date, eventForm, eventId) {
+    console.log(date)
     this.setState({
       selected: date,
       eventForm: eventForm
@@ -100,7 +101,7 @@ export default class Calendar extends React.Component {
 
   changeMonth(movement) {
     const { currentDate } = this.state;
-    currentDate.setMonth(currentDate.getMonth() + movement);
+    currentDate.set("month", currentDate.month() + movement);
     this.setState({
       currentDate
     });
@@ -112,7 +113,7 @@ export default class Calendar extends React.Component {
       <section className="Calendar-section">
         <h1>
           <span onClick={() => this.changeMonth(-1)}>&#8249; </span>
-          {moment(currentDate).format("MMMM")} {currentDate.getFullYear()}
+          {moment(currentDate).format("MMMM")} {currentDate.format("YYYY")}
           <span onClick={() => this.changeMonth(1)}> &#8250;</span>
         </h1>
 
