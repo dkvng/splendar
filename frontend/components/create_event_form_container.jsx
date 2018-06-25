@@ -8,8 +8,6 @@ const mapStateToProps = ({ errors }, ownProps) => {
   const date =
     moment(ownProps.selected).format("YYYY-MM-DD") +
     moment(ownProps.currentDate).format("THH:mm");
-  console.log(moment(date));
-  debugger;
   return {
     event: {
       title: "",

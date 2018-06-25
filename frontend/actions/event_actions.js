@@ -46,7 +46,6 @@ export const fetchEvent = id => dispatch => {
 };
 
 export const createEvent = event => dispatch => {
-  debugger
   return APIUtil.createEvent(event).then(
     payload => dispatch(receiveEvent(payload.event)),
     err => dispatch(receiveErrors(err.responseJSON))
@@ -54,14 +53,12 @@ export const createEvent = event => dispatch => {
 };
 
 export const updateEvent = event => dispatch => {
-  debugger
   return APIUtil.updateEvent(event).then(dispatch(receiveEvent(event)), err =>
     dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const deleteEvent = eventId => dispatch => {
-  debugger
   return APIUtil.deleteEvent(eventId).then(event =>
     dispatch(removeEvent(eventId))
   );
