@@ -75,12 +75,10 @@ export default class Calendar extends React.Component {
   }
 
   handleEvent(date, eventForm, eventId) {
-    debugger;
     this.setState({
       selected: date,
       eventForm: eventForm
     });
-    debugger;
     if (eventId) {
       this.setState({
         eventId

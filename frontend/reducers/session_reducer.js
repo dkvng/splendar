@@ -2,8 +2,6 @@ import merge from "lodash/merge";
 
 // import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
-// DKVNG: need to hard code a user, also maybe get all events when current user fetch??
-
 const _nullUser = Object.freeze({
   currentUser: null
 });
