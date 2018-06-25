@@ -36,6 +36,7 @@ class CalendarDay extends React.Component {
             <h5>
               <div className="circle" />{" "}
               {moment(event.start_date)
+                .utcOffset("+00:00")
                 .format("h:mm a")}{" "}
               <span>{event.title}</span>
             </h5>

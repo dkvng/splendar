@@ -58,6 +58,7 @@ export default class Calendar extends React.Component {
           <CreateEventFormContainer
             selected={this.state.selected}
             closeModal={this.closeModal}
+            currentDate={this.state.currentDate}
           />
         );
 

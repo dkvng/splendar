@@ -14,7 +14,7 @@ const mapStateToProps = ({ errors }, ownProps) => {
       title: "",
       description: "",
       start_date: date,
-      end_date: moment(date).add(30, "minutes").format("YYYY-MM-DDTHH:mm:SS")
+      end_date: moment(date).add(30, "minutes").format("YYYY-MM-DDTHH:mm")
     },
     errors: errors,
     formType: 'Create'
