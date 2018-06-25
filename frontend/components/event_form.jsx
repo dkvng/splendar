@@ -23,7 +23,10 @@ export default class EventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
     const event = Object.assign({}, this.state);
+    event.start_date = moment(event.start_date).toISOString();
+    event.end_date = moment(event.end_date).toISOString();
     this.props.processForm(event).then(() => this.props.closeModal());
   }
 

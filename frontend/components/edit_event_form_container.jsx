@@ -17,7 +17,9 @@ const mapStateToProps = ({ errors, entities }, ownProps) => {
     event.start_date = moment(event.start_date).format("YYYY-MM-DDTHH:mm");
     event.end_date = moment(event.end_date).format("YYYY-MM-DDTHH:mm");
   }
+  console.log(moment(event.start_date));
 
+  debugger
   return {
     event,
     errors,

@@ -8,16 +8,19 @@ const mapStateToProps = ({ errors }, ownProps) => {
   const date =
     moment(ownProps.selected).format("YYYY-MM-DD") +
     moment(ownProps.currentDate).format("THH:mm");
-
+  console.log(moment(date));
+  debugger;
   return {
     event: {
       title: "",
       description: "",
       start_date: date,
-      end_date: moment(date).add(30, "minutes").format("YYYY-MM-DDTHH:mm")
+      end_date: moment(date)
+        .add(30, "minutes")
+        .format("YYYY-MM-DDTHH:mm")
     },
     errors: errors,
-    formType: 'Create'
+    formType: "Create"
   };
 };
 
