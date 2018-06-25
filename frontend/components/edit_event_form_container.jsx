@@ -10,7 +10,6 @@ import moment from "moment";
 import EventForm from "./event_form";
 
 const mapStateToProps = ({ errors, entities }, ownProps) => {
-  debugger;
   const event = entities.events[ownProps.eventId];
 
   if (event) {

@@ -19,9 +19,7 @@ class CalendarDay extends React.Component {
   }
 
   handleEvent(e) {
-    debugger;
     const eventId = Number(e.currentTarget.getAttribute("eventId"));
-    debugger
     e.stopPropagation();
     this.props.handleEvent(this.state.date, "Update", eventId);
   }
@@ -29,6 +27,7 @@ class CalendarDay extends React.Component {
   displayEvents() {
     return this.props.events.map((event, i) => {
       if (
+        // double check to make sure
         moment(event.start_date).format("MMM Do YY") ===
         moment(this.state.date).format("MMM Do YY")
       ) {
@@ -60,9 +59,15 @@ class CalendarDay extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const events = Object.values(state.entities.events)
+    .filter(event => {
+      return moment(event.start_date).isSame(ownProps.date, "day");
+    })
+    .sort((a, b) => moment(a.start_date) - moment(b.start_date));
+
   return {
-    events: Object.assign([], state.entities.events)
+    events
   };
 };
 

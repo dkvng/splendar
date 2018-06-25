@@ -4,7 +4,6 @@
 - added title to Event table
 - FIX LOCALE TIME ZONE
 
-
 ### Must Have Specs
 1. [X] The UI should have one month hard coded view (Pick any month)
 1. [X] Ignore users/login, just have one hardcoded user
@@ -22,7 +21,7 @@
 1. [ ] Week or day view
 1. [ ] Handle events spanning multiple days
 1. [X] Handle too many events to fit in your box UI on a given day.
-1. [ ] You should be able to update/delete events. How you implement this UX is up to you.
+1. [X] You should be able to update/delete events. How you implement this UX is up to you.
 1. [X] The UI should have 5 rows of 7 boxes with the correct date on the correct days.
 
 
@@ -36,7 +35,7 @@ Events (Minimum Required API)
     - Should return all events
 
 Events (Optional API. Not required; bonus points available)
-1. [ ] DELETE /events/:id
+1. [X] DELETE /events/:id
     - Should delete an event
 1. [X] PUT /events/:id
     - Should update an existing event
