@@ -44,6 +44,12 @@ export default class EventForm extends React.Component {
   }
 
   render() {
+    // min & max to not allow multi day events
+    const min = moment(this.props.selected).format("YYYY-MM-DDTHH:mm:SS");
+    const max = moment(this.props.selected)
+      .add(1, "day")
+      .format("YYYY-MM-DDTHH:mm:SS");
+
     return (
       <form onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
         {this.renderErrors()}
@@ -64,11 +70,15 @@ export default class EventForm extends React.Component {
           type="datetime-local"
           value={this.state.start_date}
           onChange={this.update("start_date")}
+          min={min}
+          max={max}
         />
         <input
           type="datetime-local"
           value={this.state.end_date}
           onChange={this.update("end_date")}
+          min={min}
+          max={max}
         />
         <input
           type="submit"

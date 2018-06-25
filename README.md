@@ -1,8 +1,8 @@
 # Calendar
 
 #### Notes:
-- added title to Event table
-- FIX LOCALE TIME ZONE
+- added Title to Event model
+
 
 ### Must Have Specs
 1. [X] The UI should have one month hard coded view (Pick any month)
