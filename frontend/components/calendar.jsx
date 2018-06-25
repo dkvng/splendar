@@ -108,6 +108,7 @@ export default class Calendar extends React.Component {
 
   render() {
     const { currentDate, eventForm, selected } = this.state;
+    console.log(currentDate);
     return (
       <section className="Calendar-section">
         <h1>

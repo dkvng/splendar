@@ -1,4 +1,8 @@
-import { RECEIVE_ALL_EVENTS, RECEIVE_EVENT, REMOVE_EVENT } from "../actions/event_actions";
+import {
+  RECEIVE_ALL_EVENTS,
+  RECEIVE_EVENT,
+  REMOVE_EVENT
+} from "../actions/event_actions";
 import { merge } from "lodash";
 
 const eventsReducer = (state = {}, action) => {
