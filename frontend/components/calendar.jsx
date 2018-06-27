@@ -67,7 +67,7 @@ export default class Calendar extends React.Component {
             handleEvent={(date, eventForm, eventId) =>
               this.handleEvent(date, eventForm, eventId)
             }
-            date={new Date(this.state.selected)}
+            date={new Date(this.state.currentDate )}
             className="CalendarDay"
           />
         );
@@ -102,6 +102,7 @@ export default class Calendar extends React.Component {
   handleEvent(date, eventForm, eventId) {
     this.setState({
       selected: date,
+      currentDate: moment(date),
       eventForm: eventForm
     });
     if (eventId) {
@@ -146,6 +147,9 @@ export default class Calendar extends React.Component {
 
   render() {
     const { currentDate, eventForm, selected } = this.state;
+    console.log(currentDate)
+    console.log("ok")
+    console.log(selected)
     return (
       <section className="Calendar-section">
         <h1>
