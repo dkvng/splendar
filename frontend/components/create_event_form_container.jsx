@@ -6,8 +6,8 @@ import moment from "moment";
 
 const mapStateToProps = ({ errors }, ownProps) => {
   const date =
-    moment(ownProps.selected).format("YYYY-MM-DD") +
-    moment(ownProps.currentDate).format("THH:mm");
+    moment(ownProps.currentDate).format("YYYY-MM-DD") +
+    moment().format("THH:mm");
   return {
     event: {
       title: "",

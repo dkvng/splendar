@@ -80,7 +80,6 @@ export default class Calendar extends React.Component {
       case "Create":
         return (
           <CreateEventFormContainer
-            selected={this.state.selected}
             closeModal={this.closeModal}
             currentDate={this.state.currentDate}
           />
@@ -89,7 +88,6 @@ export default class Calendar extends React.Component {
       case "Update":
         return (
           <EditEventFormContainer
-            selected={this.state.selected}
             closeModal={this.closeModal}
             eventId={this.state.eventId}
           />
@@ -101,7 +99,6 @@ export default class Calendar extends React.Component {
 
   handleEvent(date, eventForm, eventId) {
     this.setState({
-      selected: date,
       currentDate: moment(date),
       eventForm: eventForm
     });
@@ -146,10 +143,7 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    const { currentDate, eventForm, selected } = this.state;
-    console.log(currentDate)
-    console.log("ok")
-    console.log(selected)
+    const { currentDate, eventForm } = this.state;
     return (
       <section className="Calendar-section">
         <h1>
