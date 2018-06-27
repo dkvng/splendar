@@ -19,7 +19,7 @@
 
 ### Optional Specs (Not required; bonus points available for inclusion of one or more features)
 1. [X] Switch between months
-1. [ ] Week or day view
+1. [X] Week or day view
 1. [ ] Handle events spanning multiple days
 1. [X] Handle too many events to fit in your box UI on a given day.
 1. [X] You should be able to update/delete events. How you implement this UX is up to you.

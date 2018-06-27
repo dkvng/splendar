@@ -48,7 +48,7 @@ class CalendarDay extends React.Component {
     const events = this.displayEvents();
     return (
       <li
-        className="Calendar-date"
+        className={"Calendar-date " + this.props.className}
         onClick={() => this.props.handleEvent(this.state.date, "Create")}
       >
         <p>{this.state.date.getDate()}</p>

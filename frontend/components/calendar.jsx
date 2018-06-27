@@ -16,7 +16,7 @@ export default class Calendar extends React.Component {
       mode: "month"
     };
 
-    this.changeMonth = this.changeMonth.bind(this);
+    this.changeTime = this.changeTime.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleEvent = this.handleEvent.bind(this);
   }
@@ -67,7 +67,8 @@ export default class Calendar extends React.Component {
             handleEvent={(date, eventForm, eventId) =>
               this.handleEvent(date, eventForm, eventId)
             }
-            date={new Date(this.state.currentDate)}
+            date={new Date(this.state.selected)}
+            className="CalendarDay"
           />
         );
       default:
@@ -122,7 +123,7 @@ export default class Calendar extends React.Component {
     });
   }
 
-  changeMonth(movement) {
+  changeTime(movement) {
     const { currentDate } = this.state;
     const action = { month: currentDate.month(), day: currentDate.day() };
     currentDate.set(this.state.mode, action[this.state.mode] + movement);
@@ -148,12 +149,15 @@ export default class Calendar extends React.Component {
     return (
       <section className="Calendar-section">
         <h1>
-          <span onClick={() => this.changeMonth(-1)}>&#8249; </span>
+          <span onClick={() => this.changeTime(-1)}>&#8249; </span>
           {moment(currentDate).format("MMMM")} {currentDate.format("YYYY")}
-          <span onClick={() => this.changeMonth(1)}> &#8250;</span>
+          <span onClick={() => this.changeTime(1)}> &#8250;</span>
         </h1>
 
-        <button onClick={() => this.changeMode()}>
+        <button
+          className="Calendar-view-toggle"
+          onClick={() => this.changeMode()}
+        >
           {this.state.mode.toUpperCase()}
         </button>
         {this.displayMode()}

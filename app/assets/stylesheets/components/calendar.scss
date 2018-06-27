@@ -101,3 +101,31 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+.Calendar-view-toggle {
+  position: absolute;
+  right: 20%;
+  margin-top: 15px;
+}
+
+.Calendar-section > .CalendarDay {
+  list-style: none;
+  width: 500px;
+  min-height: 300px;
+  border: 1px solid lightgrey;
+}
+
+.Calendar-section > .CalendarDay > p {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.Calendar-section > .CalendarDay > ul > li > h5 {
+  font-size: 16px;
+}
+
+.CalendarDay .circle {
+  height: 15px;
+  width: 15px;
+}

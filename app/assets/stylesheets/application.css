@@ -33,6 +33,10 @@ button {
   font-family: "Open Sans", sans-serif;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
