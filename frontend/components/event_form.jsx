@@ -46,9 +46,11 @@ export default class EventForm extends React.Component {
   }
 
   render() {
-    const min = moment(this.props.selected).format("YYYY-MM-DDTHH:mm:SS");
-    const max = moment(this.props.selected)
-      .add(1, "day")
+    const min =
+      moment(this.props.selected).format("YYYY-MM-DDT") +
+      moment("00:00:00", "HH:mm:ss").format("HH:mm:SS");
+    const max = moment(min)
+      .add(1, "day").subtract(1, "second")
       .format("YYYY-MM-DDTHH:mm:SS");
 
     return (

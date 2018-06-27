@@ -35,8 +35,7 @@ class CalendarDay extends React.Component {
           <li key={i} eventid={event.id} onClick={e => this.handleEvent(e)}>
             <h5>
               <div className="circle" />{" "}
-              {moment(event.start_date)
-                .format("h:mm a")}{" "}
+              {moment(event.start_date).format("h:mm a")}{" "}
               <span>{event.title}</span>
             </h5>
           </li>
@@ -47,7 +46,6 @@ class CalendarDay extends React.Component {
 
   render() {
     const events = this.displayEvents();
-
     return (
       <li
         className="Calendar-date"

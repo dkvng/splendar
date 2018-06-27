@@ -12,7 +12,8 @@ export default class Calendar extends React.Component {
       currentDate: moment(),
       selected: moment().startOf("day"),
       eventForm: false,
-      eventId: null
+      eventId: null,
+      mode: "month"
     };
 
     this.changeMonth = this.changeMonth.bind(this);
@@ -49,6 +50,28 @@ export default class Calendar extends React.Component {
         );
       }
     });
+  }
+
+  displayMode() {
+    switch (this.state.mode) {
+      case "month":
+        return (
+          <ul className="Calendar-grid">
+            {this.dayNames()}
+            {this.createDays()}
+          </ul>
+        );
+      case "day":
+        return (
+          <CalendarDay
+            handleEvent={(date, eventForm, eventId) =>
+              this.handleEvent(date, eventForm, eventId)
+            }
+            date={new Date(this.state.currentDate)}
+          />
+        );
+      default:
+    }
   }
 
   displayForm() {
@@ -101,10 +124,23 @@ export default class Calendar extends React.Component {
 
   changeMonth(movement) {
     const { currentDate } = this.state;
-    currentDate.set("month", currentDate.month() + movement);
+    const action = { month: currentDate.month(), day: currentDate.day() };
+    currentDate.set(this.state.mode, action[this.state.mode] + movement);
     this.setState({
       currentDate
     });
+  }
+
+  changeMode() {
+    switch (this.state.mode) {
+      case "month":
+        this.setState({ mode: "day" });
+        break;
+      case "day":
+        this.setState({ mode: "month" });
+        break;
+      default:
+    }
   }
 
   render() {
@@ -117,10 +153,11 @@ export default class Calendar extends React.Component {
           <span onClick={() => this.changeMonth(1)}> &#8250;</span>
         </h1>
 
-        <ul className="Calendar-grid">
-          {this.dayNames()}
-          {this.createDays()}
-        </ul>
+        <button onClick={() => this.changeMode()}>
+          {this.state.mode.toUpperCase()}
+        </button>
+        {this.displayMode()}
+
         {eventForm ? (
           <section
             className="EventForm-modal"

@@ -15,25 +15,39 @@
  */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
 }
 
+button {
+  font-size: 19px;
+  font-weight: lighter;
+  padding: 11px;
+  width: 100px;
+  height: 25px;
+  margin-bottom: 15px;
+  color: #484848;
+  outline: 0px transparent;
+  border: 1px solid #dbdbdb;
+  box-sizing: unset;
+  font-family: "Open Sans", sans-serif;
+}
+
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
