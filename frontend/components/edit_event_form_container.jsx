@@ -13,7 +13,6 @@ const mapStateToProps = ({ errors, entities }, ownProps) => {
   const event = entities.events[ownProps.eventId];
 
   if (event) {
-
     event.start_date = moment(event.start_date).format("YYYY-MM-DDTHH:mm");
     event.end_date = moment(event.end_date).format("YYYY-MM-DDTHH:mm");
   }
@@ -36,7 +35,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventForm);
-
 
 // For multiday events you need datetime-local input and this format below
 // event.start_date = moment(event.start_date).format("YYYY-MM-DDTHH:mm:SS");
