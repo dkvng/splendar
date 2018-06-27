@@ -10,7 +10,6 @@ export default class Calendar extends React.Component {
 
     this.state = {
       currentDate: moment(),
-      selected: moment().startOf("day"),
       eventForm: false,
       eventId: null,
       mode: "month"
@@ -67,7 +66,7 @@ export default class Calendar extends React.Component {
             handleEvent={(date, eventForm, eventId) =>
               this.handleEvent(date, eventForm, eventId)
             }
-            date={new Date(this.state.currentDate )}
+            date={new Date(this.state.currentDate)}
             className="CalendarDay"
           />
         );
