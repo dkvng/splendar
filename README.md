@@ -2,8 +2,6 @@
 
 #### [Live Link via Heroku](https://splendar.herokuapp.com/)
 
-#### [Link to stage 1 repo with coding questions & app files](https://github.com/dkvng/spotify-nyc-tech-fellowship)
-
 #### Notes:
 - added title to Event table
 
